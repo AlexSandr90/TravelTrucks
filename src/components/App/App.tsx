@@ -12,6 +12,7 @@ const CamperDetail = lazy(
 const App = () => {
   return (
     <Router>
+      <Suspense fallback={null}>
         <Header />
         <Routes>
           <Route path="/" element={<HomePage />} />
