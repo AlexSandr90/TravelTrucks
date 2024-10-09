@@ -1,4 +1,4 @@
-import css './Catalog.module.css'
+import css from './Catalog.module.css';
 
 const Catalog = () => {
   return <div>Catalog</div>;
