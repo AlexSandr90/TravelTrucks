@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
-import { lazy } from 'react';
+import { lazy, Suspense } from 'react';
 import Header from '../Header/Header';
 
 const HomePage = lazy(() => import('../../pages/HomePage/HomePage'));
@@ -9,16 +9,16 @@ const CamperDetail = lazy(
   () => import('../../pages/CamperDetail/CamperDetail')
 );
 
-
 const App = () => {
   return (
     <Router>
-      <Header />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/catalog" element={<Catalog />} />
-        <Route path="/catalog/:id" element={<CamperDetail />} />
-      </Routes>
+        <Header />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/catalog" element={<Catalog />} />
+          <Route path="/catalog/:id" element={<CamperDetail />} />
+        </Routes>
+      </Suspense>
     </Router>
   );
 };
