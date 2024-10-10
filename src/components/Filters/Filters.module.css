@@ -1,0 +1,17 @@
+.filters_wrap {
+    display: flex;
+    flex-direction: column;
+    width: 360px;
+}
+
+.location_block {
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+}
+
+.filters_form__block {
+    display: flex;
+    flex-direction: column;
+    row-gap: 32px;
+}
