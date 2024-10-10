@@ -1,7 +1,15 @@
 import css from './Header.module.css';
+import logo from '../../img/icons.svg'
+import Navigation from '../Navigation/Navigation';
 
 const Header = () => {
-  return <div className={css.header}>Header</div>;
+  return <div className={css.header}>
+     <svg className={css.logo} >
+       <use href={`${logo}#logo`} />
+     </svg>
+
+     <Navigation />
+  </div>;
 };
 
 export default Header;
