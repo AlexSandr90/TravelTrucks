@@ -1,7 +1,7 @@
 .header {
     display: flex;
     width: 1440px;
-    padding: 24px calc(64px - 16px);
+    padding: 24px 64px;
     align-items: center;
     gap: 450px;
     border-bottom: 1px solid var(--badges);
