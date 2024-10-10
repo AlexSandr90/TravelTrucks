@@ -1,7 +1,7 @@
 import css from './CampersList.module.css';
 
 const CampersList = () => {
-  return <div>CampersList</div>;
+  return <article className={css.campers_list__wrapper}>CampersList</article>;
 };
 
 export default CampersList;
