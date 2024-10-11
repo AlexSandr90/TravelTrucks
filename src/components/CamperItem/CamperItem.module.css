@@ -1,0 +1,12 @@
+.camper_item__wrap {
+    display: flex;
+    width: 888px;
+    height: 368px;
+    padding: 24px;
+    gap: 24px;
+    border-radius: 20px;
+    border: 1px solid var(--gray-light);
+    background: var(--white);
+
+    box-sizing: border-box;
+}

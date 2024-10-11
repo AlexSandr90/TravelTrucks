@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import css from './App.module.css';
 import { lazy, Suspense } from 'react';
 import Header from '../Header/Header';
@@ -11,7 +11,7 @@ const CamperDetail = lazy(
 
 const App = () => {
   return (
-    <Router>
+    <BrowserRouter>
       <div className={css.container}>
         <Suspense fallback={null}>
           <Header />
@@ -22,7 +22,7 @@ const App = () => {
           </Routes>
         </Suspense>
       </div>
-    </Router>
+    </BrowserRouter>
   );
 };
 
