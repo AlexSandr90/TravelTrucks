@@ -4,3 +4,19 @@
     width: 888px;
     gap: 32px;
 }
+
+.load_more__btn {
+    align-self: center;
+    padding: 16px 32px;
+    width: 145px;
+    border: 1px solid var(--gray-light);
+    background-color: var(--white);
+    transition: border-color ease-in-out 200ms;
+    color: var(--main);
+}
+
+.load_more__btn:hover,
+.load_more__btn_active {
+    background-color: var(--white);
+    border-color: var(--button-hover);
+}
