@@ -5,9 +5,11 @@ import Navigation from '../Navigation/Navigation';
 const Header = () => {
   return (
     <header className={css.header}>
-      <svg className={css.logo}>
-        <use href={`${logo}#logo`} />
-      </svg>
+      <a href="/">
+        <svg className={css.logo}>
+          <use href={`${logo}#logo`} />
+        </svg>
+      </a>
 
       <Navigation />
     </header>
