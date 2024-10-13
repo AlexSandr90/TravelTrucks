@@ -10,7 +10,7 @@ const CamperItem = ({ camper }: { camper: Camper }) => {
   const navigate = useNavigate();
 
   const handleOpenDetails = () => {
-    navigate(`/campers/${id}`);
+    navigate(`/catalog/${id}`);
   };
 
   return (
@@ -47,9 +47,7 @@ const CamperItem = ({ camper }: { camper: Camper }) => {
 
         <p className={css.comment}>{description}</p>
 
-        <div className={css.features_label__block}>
-          <FeaturesLabel camper={camper} />
-        </div>
+        <FeaturesLabel camper={camper} />
 
         <Button onClick={handleOpenDetails}>Show more</Button>
       </div>

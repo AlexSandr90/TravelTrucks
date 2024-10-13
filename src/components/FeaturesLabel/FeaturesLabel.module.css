@@ -1,0 +1,6 @@
+.features_label__block {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}

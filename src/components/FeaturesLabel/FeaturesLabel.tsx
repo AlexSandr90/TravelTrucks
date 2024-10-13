@@ -1,13 +1,10 @@
 import { Camper } from '../../types/camper';
 import FeatureLabelItem from '../FeatureLabelItem/FeatureLabelItem';
+import css from './FeaturesLabel.module.css';
 
-interface FeaturesLabelProps {
-  camper: Camper;
-}
-
-const FeaturesLabel = ({ camper }: FeaturesLabelProps) => {
+const FeaturesLabel = ({ camper }: { camper: Camper }) => {
   return (
-    <>
+    <div className={css.features_label__block}>
       {camper?.transmission === 'automatic' && (
         <FeatureLabelItem imgLabel="automatic" featureName="Automatic" />
       )}
@@ -31,7 +28,7 @@ const FeaturesLabel = ({ camper }: FeaturesLabelProps) => {
       {camper?.microwave && (
         <FeatureLabelItem imgLabel="microwave" featureName="Microwave" />
       )}
-    </>
+    </div>
   );
 };
 
