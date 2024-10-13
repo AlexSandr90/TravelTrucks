@@ -1,7 +1,7 @@
 .camper_item__wrap {
     display: flex;
     width: 888px;
-    height: 368px;
+    min-height: 368px;
     padding: 24px;
     gap: 24px;
     border-radius: 20px;
@@ -16,6 +16,7 @@
     height: 320px;
     flex-shrink: 0;
     border-radius: 10px;
+    object-fit: cover;
     background: lightgray -57.393px -4.801px / 195.679% 103.001% no-repeat;
 }
 
@@ -96,31 +97,7 @@
 
 .features_label__block {
     display: flex;
-    max-width: 480px;
     align-items: center;
     flex-wrap: wrap;
     gap: 8px;
-}
-
-.features_label {
-    display: flex;
-    padding: 12px 18px;
-    align-items: center;
-    gap: 8px;
-    border-radius: 100px;
-    background: var(--badges);
-    mix-blend-mode: multiply;
-}
-
-.features_img {
-    width: 20px;
-    height: 20px;
-}
-
-.features_text {
-    text-align: center;
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 1.5;
-    color: var(--main);
 }
