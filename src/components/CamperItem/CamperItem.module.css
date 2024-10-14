@@ -69,8 +69,16 @@
     flex: 1 0 0;
 }
 
+.heart {
+    cursor: pointer;
+}
+
 .star {
     fill: var(--rating);
+}
+
+.favorite {
+    fill: var(--button);
 }
 
 .reviews_map {
