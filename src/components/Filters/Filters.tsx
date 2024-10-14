@@ -9,7 +9,7 @@ import { FetchCampersParams } from '../../types/fetchCampersParams';
 
 const vehicleEquipment = [
   {
-    name: 'ac',
+    name: 'AC',
     title: 'AC',
   },
   {
@@ -21,7 +21,7 @@ const vehicleEquipment = [
     title: 'Kitchen',
   },
   {
-    name: 'tv',
+    name: 'TV',
     title: 'TV',
   },
   {
@@ -188,7 +188,7 @@ const Filters = () => {
                     }}
                   >
                     <svg className={css.filter_group__img}>
-                      <use href={`${icons}#${name}`} />
+                      <use href={`${icons}#${name.toLocaleLowerCase()}`} />
                     </svg>
                     <span className={css.filter_group__text}>{title}</span>
                   </li>
