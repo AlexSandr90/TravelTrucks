@@ -1,7 +1,9 @@
 import { createAsyncThunk, createAction } from '@reduxjs/toolkit';
-import { axiosInstance } from '../../services/axios.config';
 import axios from 'axios';
 import { FetchCampersParams } from '../../types/fetchCampersParams';
+
+
+axios.defaults.baseURL = "https://66b1f8e71ca8ad33d4f5f63e.mockapi.io/";
 
 
 const filteredParams = (params: FetchCampersParams) =>
@@ -17,7 +19,7 @@ export const fetchCampers = createAsyncThunk(
     const queryParams = filteredParams(params);
 
     try {
-      const response = await axiosInstance.get('/campers', {
+      const response = await axios.get('/campers', {
         params: queryParams,
       });
 
@@ -38,7 +40,7 @@ export const fetchCamperById = createAsyncThunk(
   'campers/fetchCamperById',
   async (id: string, thunkApi) => {
     try {
-      const response = await axiosInstance.get(`/campers/${id}`);
+      const response = await axios.get(`/campers/${id}`);
       return response.data;
     } catch (error) {
       if (axios.isAxiosError(error) && error.response) {
