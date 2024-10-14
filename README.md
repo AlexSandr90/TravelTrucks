@@ -73,7 +73,7 @@ App.tsx: головний компонент додатку.
 index.tsx: точка входу додатку.
 
 ### Лінки
-Робоче посилання на сайт: [посилання на Vercel або Netlify](https://travel-trucks-sigma-nine.vercel.app/)
-Посилання на репозиторій GitHub: [посилання на репозиторій](https://github.com/AlexSandr90/TravelTrucks)
+Робоче посилання на сайт: https://travel-trucks-sigma-nine.vercel.app
+Посилання на репозиторій GitHub: https://github.com/AlexSandr90/TravelTrucks
 Автор
 Ім’я: Oleksandr Haitsuk
