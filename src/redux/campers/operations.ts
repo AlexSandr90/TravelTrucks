@@ -1,13 +1,24 @@
-import { createAsyncThunk } from '@reduxjs/toolkit';
+import { createAsyncThunk, createAction } from '@reduxjs/toolkit';
 import { axiosInstance } from '../../services/axios.config';
 import axios from 'axios';
+import { FetchCampersParams } from '../../types/fetchCampersParams';
+
+
+const filteredParams = (params: FetchCampersParams) =>
+  Object.fromEntries(
+    Object.entries(params).filter(
+      ([_, value]) => value !== undefined && value !== null
+    )
+  );
 
 export const fetchCampers = createAsyncThunk(
   'campers/fetchCampers',
-  async ({ page, limit }: { page: number; limit: number }, thunkApi) => {
+  async (params: FetchCampersParams, thunkApi) => {
+    const queryParams = filteredParams(params);
+
     try {
       const response = await axiosInstance.get('/campers', {
-        params: { page, limit },
+        params: queryParams,
       });
 
       const data = response.data;
@@ -38,3 +49,5 @@ export const fetchCamperById = createAsyncThunk(
     }
   }
 );
+
+export const clearCampers = createAction('campers/clearCampers');

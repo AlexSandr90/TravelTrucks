@@ -39,11 +39,16 @@
     height: 20px;
 }
 
-.map_location {
+.map_location,
+.map_location:active,
+.map_location:focus {
     font-size: 16px;
     font-weight: 400;
     line-height: 1.5;
     color: var(--main);
+    border: none;
+    background-color: inherit;
+    outline: none;
 }
 
 /*? ================================== Filters ================================== */

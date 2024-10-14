@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchCamperById, fetchCampers } from './operations';
+import { fetchCamperById, fetchCampers, clearCampers } from './operations';
 import { Camper } from '../../types/camper';
+
 
 interface CamperState {
   items: Camper[];
@@ -56,6 +57,9 @@ const campersSlice = createSlice({
       .addCase(fetchCamperById.rejected, (state) => {
         state.status = 'failed';
         state.isLoading = false;
+      })
+      .addCase(clearCampers, (state) => {
+        state.items = [];
       });
   },
 });
