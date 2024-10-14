@@ -38,7 +38,7 @@ const ReviewsDetail = ({ reviews, isVisible }: ReviewsDetailProps) => {
                 <div className={css.name_review}>
                   <span>{reviewer_name}</span>
                   <div className={css.rating}>
-                    {starArray?.map((starItem, index) => {
+                    {starArray?.map((_, index) => {
                       return (
                         <svg
                           className={`${css.star} ${

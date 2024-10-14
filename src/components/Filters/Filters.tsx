@@ -48,10 +48,6 @@ const vehicleEquipment = [
 
 const vehicleTypes = [
   {
-    name: 'van',
-    title: 'Van',
-  },
-  {
     name: 'fullyIntegrated',
     title: 'Fully Integrated',
   },
@@ -124,7 +120,7 @@ const Filters = () => {
 
       params = Object.fromEntries(
         Object.entries(params).filter(
-          ([key, value]) =>
+          ([, value]) =>
             value !== false && value !== undefined && value !== ''
         )
       );

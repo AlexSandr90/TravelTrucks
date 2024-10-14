@@ -4,7 +4,6 @@ import CamperItem from '../CamperItem/CamperItem';
 import css from './CampersList.module.css';
 import {
   selectCampersList,
-  selectIsLoading,
 } from '../../redux/campers/selectors';
 import { Fragment, useEffect, useState } from 'react';
 import { fetchCampers } from '../../redux/campers/operations';
@@ -14,7 +13,6 @@ import { Camper } from '../../types/camper';
 const CampersList = () => {
   const dispatch = useDispatch<AppDispatch>();
   const campers = useSelector(selectCampersList);
-  const isLoading = useSelector(selectIsLoading);
 
   const [page, setPage] = useState(1);
   const limit = 4;
