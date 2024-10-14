@@ -1,50 +1,79 @@
-# React + TypeScript + Vite
+# Camper Rental Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Проєкт
 
-Currently, two official plugins are available:
+Це веб-застосунок для оренди кемперів, де користувачі можуть переглядати доступні транспортні засоби, фільтрувати їх за різними критеріями, додавати до обраних та бронювати кемпери. Проєкт реалізований на основі React з використанням Redux для управління станом та Axios для асинхронних запитів.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Основні функції
 
-## Expanding the ESLint configuration
+- **Домашня сторінка**: відображає банер з закликом до дії і кнопку для переходу до каталогу.
+- **Каталог**: дозволяє фільтрувати доступні кемпери за локацією, типом кузова, наявністю кондиціонера та іншими критеріями.
+- **Фільтрація**: фільтрування виконуються на бекенді, включає в себе текстове поле для локації та декілька прапорців для інших критеріїв.
+- **Сторінка кемпера**: детальний опис вибраного кемпера з галереєю фотографій, відгуками та формою для бронювання.
+- **Обране**: користувач може додати кемпери до обраних, і ці дані зберігаються при оновленні сторінки.
+- **Пагінація**: можливість завантаження додаткових карток кемперів за допомогою кнопки "Load More".
+- **Відгуки**: на сторінці кемпера відображаються відгуки користувачів, які оцінюють кемпер за п'ятизірковою шкалою.
+- **Форма бронювання**: дозволяє користувачеві забронювати кемпер і отримати нотифікацію про успішне бронювання.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Технології
 
-- Configure the top-level `parserOptions` property like this:
+- **React**: для побудови інтерфейсу користувача.
+- **Redux**: для керування станом додатку.
+- **React Router**: для маршрутизації між сторінками.
+- **Axios**: для виконання HTTP запитів до бекенду.
+- **Vite**: для бандлінгу та швидкої розробки.
+- **CSS модулі** або інші CSS бібліотеки для стилізації (залежно від вибору).
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Налаштування проєкту
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### Вимоги
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+- Node.js (версія 16 або вище)
+- npm або yarn
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+### Кроки для запуску
+
+1. Клонуйте репозиторій:
+
+   ```bash
+   git clone https://github.com/AlexSandr90/TravelTrucks.git
+
+
+### Перейдіть в директорію проєкту:
+
+bash
+Copy code
+cd <назва папки>
+Встановіть залежності:
+
+bash
+Copy code
+npm install
+Запустіть локальний сервер для розробки:
+
+bash
+Copy code
+npm run dev
+Відкрийте браузер і перейдіть за адресою:
+
+arduino
+Copy code
+http://localhost:3000
+Налаштування для бекенду
+Бекенд повинен підтримувати API для отримання даних про кемпери, а також обробку фільтраційних запитів. Використовується для реалізації фільтрації і пагінації.
+
+### Структура проєкту
+src: основна папка з вихідними файлами проєкту.
+components: всі компоненти додатку.
+redux: логіка управління станом.
+pages: компоненти сторінок.
+styles: CSS модулі або стилі для компонентів.
+utils: утиліти та функції, що використовуються в проєкті.
+App.tsx: головний компонент додатку.
+index.tsx: точка входу додатку.
+
+### Лінки
+Робоче посилання на сайт: [посилання на Vercel або Netlify](https://travel-trucks-sigma-nine.vercel.app/)
+Посилання на репозиторій GitHub: [посилання на репозиторій](https://github.com/AlexSandr90/TravelTrucks)
+Автор
+Ім’я: Oleksandr Haitsuk
