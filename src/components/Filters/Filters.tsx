@@ -237,36 +237,3 @@ const Filters = () => {
 };
 
 export default Filters;
-
-// const handlePushNewFeature = (feature: string) => {
-//   if (activeFeatures.includes(feature)) {
-//     setActiveFeatures(activeFeatures.filter((item) => item !== feature));
-//   } else {
-//     setActiveFeatures([...activeFeatures, feature]);
-//   }
-// };
-
-// const handleFiltersFetch = () => {
-//   console.log('Click!');
-
-//   if (
-//     locationValue.length !== 0 ||
-//     activeFeatures.length !== 0 ||
-//     activeVehicleType.length !== 0
-//   ) {
-//     console.log('first');
-
-//     const params = {
-//       // page: 1,
-//       // limit: 4,
-//       location: locationValue,
-//       form: activeVehicleType,
-//       // ...{ features },
-//     };
-//     dispatch(clearCampers());
-//     dispatch(fetchCampers(params));
-//     setLocationValue('');
-//     setActiveFeatures([]);
-//     setActiveVehicleType('');
-//   }
-// };
