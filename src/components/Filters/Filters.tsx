@@ -135,13 +135,6 @@ const Filters = () => {
     }
   };
 
-  console.log({
-    locationValue,
-    activeVehicleType,
-    activeFeatures,
-    transmissionType,
-  });
-
   return (
     <aside className={css.filters_wrap}>
       <div className={css.location_block}>
