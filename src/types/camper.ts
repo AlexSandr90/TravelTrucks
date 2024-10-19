@@ -1,3 +1,14 @@
+export interface GalleryTypes {
+  thumb: string;
+  original: string;
+}
+
+export interface ReviewsTypes {
+  reviewer_name: string;
+  reviewer_rating: 1 | 2 | 3 | 4 | 5;
+  comment: string;
+}
+
 export interface Camper {
   id: string;
   name: string;
@@ -22,10 +33,6 @@ export interface Camper {
   microwave: boolean;
   gas: boolean;
   water: boolean;
-  gallery: { thumb: string; original: string }[];
-  reviews: {
-    reviewer_name: string;
-    reviewer_rating: number;
-    comment: string;
-  }[];
+  gallery?: GalleryTypes[];
+  reviews?: ReviewsTypes[];
 }

@@ -1,12 +1,12 @@
 import { createAsyncThunk, createAction } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { FetchCampersParams } from '../../types/fetchCampersParams';
+import { FiltersTypeParams } from '../../types/filtersTypeParams';
 
 
 axios.defaults.baseURL = "https://66b1f8e71ca8ad33d4f5f63e.mockapi.io/";
 
 
-const filteredParams = (params: FetchCampersParams) =>
+const filteredParams = (params: FiltersTypeParams) =>
   Object.fromEntries(
     Object.entries(params).filter(
       ([_, value]) => value !== undefined && value !== null
@@ -15,7 +15,7 @@ const filteredParams = (params: FetchCampersParams) =>
 
 export const fetchCampers = createAsyncThunk(
   'campers/fetchCampers',
-  async (params: FetchCampersParams, thunkApi) => {
+  async (params: FiltersTypeParams, thunkApi) => {
     const queryParams = filteredParams(params);
 
     try {

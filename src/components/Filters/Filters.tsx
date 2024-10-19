@@ -5,63 +5,19 @@ import { useState } from 'react';
 import { fetchCampers, clearCampers } from '../../redux/campers/operations';
 import { useDispatch } from 'react-redux';
 import { AppDispatch } from '../../redux/store';
-import { FetchCampersParams } from '../../types/fetchCampersParams';
+import { FiltersTypeParams } from '../../types/filtersTypeParams';
+import { vehicleEquipment, vehicleTypes } from '../../utils/filters';
+import {
+  setForm,
+  setLocation,
+  setTransmission,
+  toggleFeature,
+} from '../../redux/filters/slice';
 
-const vehicleEquipment = [
-  {
-    name: 'AC',
-    title: 'AC',
-  },
-  {
-    name: 'automatic',
-    title: 'Automatic',
-  },
-  {
-    name: 'kitchen',
-    title: 'Kitchen',
-  },
-  {
-    name: 'TV',
-    title: 'TV',
-  },
-  {
-    name: 'bathroom',
-    title: 'Bathroom',
-  },
-  {
-    name: 'petrol',
-    title: 'Petrol',
-  },
-  {
-    name: 'radio',
-    title: 'Radio',
-  },
-  {
-    name: 'refrigerator',
-    title: 'Refrigerator',
-  },
-  {
-    name: 'microwave',
-    title: 'Microwave',
-  },
-];
-
-const vehicleTypes = [
-  {
-    name: 'fullyIntegrated',
-    title: 'Fully Integrated',
-  },
-  {
-    name: 'alcove',
-    title: 'Alcove',
-  },
-  {
-    name: 'paneltruck',
-    title: 'Panel truck',
-  },
-];
-
-const initialActiveFeatures = {
+const initialActiveFeatures: Omit<
+  FiltersTypeParams,
+  'page' | 'limit' | 'transmission' | 'location' | 'form'
+> = {
   AC: false,
   bathroom: false,
   kitchen: false,
@@ -69,6 +25,12 @@ const initialActiveFeatures = {
   refrigerator: false,
   microwave: false,
   radio: false,
+};
+
+const filterActiveFeatures = (features: typeof initialActiveFeatures) => {
+  return Object.fromEntries(
+    Object.entries(features).filter(([_, value]) => value === true)
+  );
 };
 
 const Filters = () => {
@@ -89,10 +51,12 @@ const Filters = () => {
   };
 
   const handlePushNewFeature = (feature: keyof typeof activeFeatures) => {
-    setActiveFeatures((prevFeatures) => ({
-      ...prevFeatures,
-      [feature]: !prevFeatures[feature],
-    }));
+    const updateFeatures = {
+      ...activeFeatures,
+      [feature]: !activeFeatures[feature],
+    };
+
+    setActiveFeatures(updateFeatures);
   };
 
   const handleTransmission = (name: string) => {
@@ -109,29 +73,23 @@ const Filters = () => {
       activeVehicleType ||
       Object.values(activeFeatures).some(Boolean)
     ) {
-      let params: FetchCampersParams = {
+      const filteredFeatures = filterActiveFeatures(activeFeatures);
+
+      const params: FiltersTypeParams = {
         page: 1,
         limit: 4,
         location: locationValue,
         form: activeVehicleType,
         transmission: transmissionType || undefined,
-        ...activeFeatures,
+        ...filteredFeatures,
       };
-
-      params = Object.fromEntries(
-        Object.entries(params).filter(
-          ([, value]) =>
-            value !== false && value !== undefined && value !== ''
-        )
-      );
 
       dispatch(clearCampers());
       dispatch(fetchCampers(params));
-
-      setLocationValue('');
-      setActiveFeatures(initialActiveFeatures);
-      setTransmissionType(null);
-      setActiveVehicleType('');
+      dispatch(setLocation(locationValue));
+      dispatch(setForm(activeVehicleType));
+      dispatch(setTransmission(transmissionType));
+      dispatch(toggleFeature(filteredFeatures));
     }
   };
 
