@@ -29,7 +29,11 @@ const CamperItem = ({ camper }: { camper: Camper }) => {
 
   return (
     <div className={css.camper_item__wrap}>
-      <img className={css.img} src={gallery[0].thumb} alt={name} />
+      <img
+        className={css.img}
+        src={(gallery && gallery.length > 0 && gallery[0].thumb) || ''}
+        alt={name}
+      />
       <div className={css.info_block}>
         <div className={css.reviews_title__block}>
           <div className={css.title_block}>
