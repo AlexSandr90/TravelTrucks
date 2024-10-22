@@ -65,7 +65,7 @@ const CamperDetail = () => {
         <div className={css.features_reviews__form_block}>
           <FeaturesDetail camper={camper} isVisible={featuresTab} />
 
-          <ReviewsDetail reviews={reviews} isVisible={reviewsTab} />
+          <ReviewsDetail reviews={reviews ?? []} isVisible={reviewsTab} />
 
           <CamperBookingForm />
         </div>
