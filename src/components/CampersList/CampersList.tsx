@@ -29,26 +29,26 @@ const CampersList = () => {
   const isFeatureTrue = featuresValues.every((element) => element === true);
 
   useEffect(() => {
-    if (
-      isFeatureTrue ||
-      (location && location?.length > 0) ||
-      (form && form?.length > 0) ||
-      (transmission && transmission?.length && transmission !== null)
-    ) {
-      dispatch(
-        fetchCampers({
-          page,
-          limit,
-          form,
-          location,
-          transmission,
-          ...features,
-        })
-      );
-    } else {
-      dispatch(fetchCampers({ page, limit }));
-    }
-  }, [dispatch, page, limit]);
+    const params = {
+      page,
+      limit,
+      ...(location && location?.length > 0 && { location }),
+      ...(form && form?.length > 0 && { form }),
+      ...(transmission && { transmission }),
+      ...(isFeatureTrue && { ...features }),
+    };
+
+    dispatch(fetchCampers(params));
+  }, [
+    page,
+    limit,
+    form,
+    dispatch,
+    location,
+    features,
+    transmission,
+    isFeatureTrue,
+  ]);
 
   return (
     <article className={css.campers_list__wrapper}>

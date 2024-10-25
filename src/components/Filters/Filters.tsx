@@ -2,7 +2,7 @@ import css from './Filters.module.css';
 import icons from '../../img/icons.svg';
 import Button from '../Button/Button';
 import { useState } from 'react';
-import { fetchCampers, clearCampers } from '../../redux/campers/operations';
+import { clearCampers } from '../../redux/campers/operations';
 import { useDispatch } from 'react-redux';
 import { AppDispatch } from '../../redux/store';
 import { FiltersTypeParams } from '../../types/filtersTypeParams';
@@ -75,17 +75,7 @@ const Filters = () => {
     ) {
       const filteredFeatures = filterActiveFeatures(activeFeatures);
 
-      const params: FiltersTypeParams = {
-        page: 1,
-        limit: 4,
-        location: locationValue,
-        form: activeVehicleType,
-        transmission: transmissionType || undefined,
-        ...filteredFeatures,
-      };
-
       dispatch(clearCampers());
-      dispatch(fetchCampers(params));
       dispatch(setLocation(locationValue));
       dispatch(setForm(activeVehicleType));
       dispatch(setTransmission(transmissionType));
